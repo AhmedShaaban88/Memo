@@ -1,0 +1,74 @@
+{
+  "log":{
+    "firstP": "Register and learn more about our service",
+    "next": "Next",
+    "login":{
+      "fb": "Login with Facebook",
+      "google": "Login with Google",
+      "mail": "Login with Email",
+      "signUp": "Create new account",
+      "errorSign": "Sorry something went wrong please try again"
+    },
+    "regularSignIn":{
+      "mail": {
+        "title": "Email address",
+        "place": "Enter email"
+      },
+      "password": {
+        "title": "Password",
+        "place": "Password"
+      },
+      "submit": "Submit"
+    },
+    "signUp":{
+      "name":{
+        "title": "Name",
+        "place": "First Name",
+        "error": "Must be more then 2 characters long without any special characters."
+      },
+      "mail":{
+        "title": "Email",
+        "place": "Email",
+        "error": "Email is incorrect"
+      },
+      "password":{
+        "title": "Password",
+        "place": "Password",
+        "error": "Must be 8 or more characters long with at least a capital and a  small character."
+      },
+      "confPassword":{
+        "title": "Confirm Password",
+        "place": "Confirm Password",
+        "error": "password and confirmation are not identical"
+      },
+      "sign-up": "Sign Up"
+
+    },
+    "prev": "Prev"
+  },
+  "home": {
+    "logOut": "logout",
+    "list": {
+      "title": "Memo List",
+      "error": "You haven't any note add one!",
+      "nList": "New",
+      "del": "Delete All"
+    },
+    "addNote": {
+      "title": "title",
+      "content": {
+        "title": "content",
+        "error": "This is required field please complete it"
+      },
+      "addBtn": "Add"
+
+    },
+    "updateNote": {
+      "updateBtn": "Update"
+
+    },
+    "load": "Loading",
+    "edit": "edit",
+    "del": "delete"
+  }
+}

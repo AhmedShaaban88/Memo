@@ -1,0 +1,82 @@
+<ul class="nav justify-content-end">
+  <li class="nav-item">
+    <img [src]="photourl || ''" alt="userPhoto">
+    <span>{{userName}}</span>
+  </li>
+  <li class="nav-item"><a (click)="logout()" href="#">{{'home.logOut' | translate}} <i class="fas fa-sign-out-alt"></i></a></li>
+</ul>
+<div>
+  <div id="memo"></div>
+</div>
+<div class="card">
+  <div class="card-body">
+    <h1>{{'home.list.title' | translate}}</h1>
+  </div>
+  <div *ngIf="notesLength === undefined">
+    <i class="fas fa-spinner"></i><br>
+    <h5>{{'home.load' | translate}}</h5>
+  </div>
+<div *ngIf="notesLength === 0">
+  <p>{{'home.list.error' | translate}}</p>
+</div>
+  <ul class="list-group list-group-flush">
+    <ng-container *ngFor="let note of notes | async  ; let i = index">
+   <a class="list-group-item" data-toggle="collapse" href="#note-{{i}}" role="button" aria-expanded="false">{{note.title}}</a>
+
+   <div class="collapse" id="note-{{i}}">
+     <p id="content">{{note.content}}</p><br>
+<div id="btns">
+       <a (click)="showUpdateNote(note)" title="{{'home.edit' | translate}}"><i class="fas fa-edit"></i></a>
+       <a (click)="deleteNote(note.key)" title="{{'home.del' | translate}}"><i class="fas fa-trash-alt"></i></a>
+</div>
+
+   </div>
+   </ng-container>
+ </ul>
+
+ <div class="card-body" id="control-btns">
+   <a class="card-link" (click)="showNewNote()">{{'home.list.nList' | translate}} <i class="fas fa-plus-circle"></i></a>
+   <a class="card-link" (click)="deleteAll()" [ngClass]="{'no-notes': notesLength === 0}"><i class="fas fa-exclamation-triangle"></i> {{'home.list.del' | translate}}</a>
+ </div>
+
+</div>
+
+<div class="card form-card" [style.display]="hideAddForm">
+  <span aria-hidden="true" (click)="hideNewNote()">&times;</span>
+  <div class="card-body">
+    <form [formGroup]="noteAddForm" (ngSubmit)="addNote()">
+      <div class="form-group">
+        <input  type="text" class="form-control" id="title" placeholder="{{'home.addNote.title' | translate}}" formControlName="title">
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" rows="10" placeholder="{{'home.addNote.content.title' | translate}}" formControlName="content"></textarea>
+        <small class="text-danger" *ngIf="!noteAddForm.get('content').valid">
+          {{'home.addNote.content.error' | translate}}
+        </small>
+      </div>
+      <button class="btn btn-primary btn-block">{{'home.addNote.addBtn' | translate}}</button>
+    </form>
+  </div>
+</div>
+
+
+<div class="card form-card" [style.display]="hideUpdateForm">
+  <span aria-hidden="true" (click)="hideUpdateNote()">&times;</span>
+  <div class="card-body">
+    <form [formGroup]="noteUpdateForm" (ngSubmit)="updateNote()">
+      <div class="form-group">
+        <input  type="text" class="form-control" id="update_title" placeholder="{{'home.addNote.title' | translate}}" formControlName="update_title">
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" rows="10" placeholder="{{'home.addNote.content.title' | translate}}" formControlName="update_content"></textarea>
+        <small class="text-danger" *ngIf="!noteUpdateForm.get('update_content').valid && noteUpdateForm.get('update_content').dirty">
+          {{'home.addNote.content.error' | translate}}
+        </small>
+      </div>
+      <button class="btn btn-primary btn-block">{{'home.updateNote.updateBtn' | translate}}</button>
+    </form>
+  </div>
+</div>
+
+
+

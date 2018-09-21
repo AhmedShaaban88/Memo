@@ -1,0 +1,37 @@
+{
+  "index": "/index.html",
+  "assetGroups": [{
+    "name": "app",
+    "installMode": "prefetch",
+    "resources": {
+      "files": [
+        "/favicon.ico",
+        "/index.html",
+        "/**/*.css",
+        "/**/*.js"
+      ]
+    }
+  }, {
+    "name": "assets",
+    "installMode": "lazy",
+    "updateMode": "prefetch",
+    "resources": {
+      "files": [
+        "/assets/**"
+      ]
+    }
+  }],
+  "dataGroup:": [
+    {
+      "name": "icon-api",
+      "urls": [
+        "https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+      ],
+      "cacheConfig": {
+        "maxSize": 5,
+        "maxAge": "3d",
+        "timeout": "5s"
+      }
+    }
+  ]
+}

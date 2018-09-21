@@ -1,0 +1,85 @@
+.nav img {
+  width: 50px;
+  margin-top: 2%;
+  border-radius: 50%; }
+.nav span {
+  margin: 10px; }
+.nav li:last-child {
+  margin: 12px; }
+
+div #memo {
+  background: url("../../assets/icons/icon-128x128.png") center center no-repeat;
+  background-size: contain;
+  height: 128px;
+  margin: 50px auto auto; }
+div div {
+  font-size: 20px;
+  text-align: center; }
+
+@keyframes showBtn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+.card {
+  width: 45%;
+  margin: auto; }
+  .card h1 {
+    color: #157efb; }
+  .card ul a {
+    text-align: center; }
+  .card #btns {
+    margin-top: 5%; }
+    .card #btns a {
+      margin: 20px;
+      cursor: pointer; }
+      .card #btns a .fa-edit {
+        color: #157efb; }
+
+#content {
+  margin-top: 5%; }
+
+.fa-trash-alt, .fa-exclamation-triangle {
+  color: red; }
+
+.card-link {
+  cursor: pointer; }
+
+.form-card {
+  position: absolute;
+  left: 28%;
+  display: none;
+  z-index: 2; }
+  .form-card span {
+    position: absolute;
+    left: 94%;
+    font-size: 25px;
+    cursor: pointer; }
+  .form-card .btn-block {
+    margin-top: 0; }
+
+.no-notes {
+  cursor: default;
+  text-decoration: line-through !important; }
+
+.form-group:first-child {
+  margin-top: 5%; }
+
+#control-btns {
+  margin-top: 15%;
+  border-top: 1px solid #eeeeee; }
+
+@media screen and (max-width: 600px) {
+  #memo {
+    height: 100px !important; }
+
+  .card {
+    width: 85%; }
+
+  .form-card {
+    position: static; }
+    .form-card span {
+      position: relative;
+      left: 90%; } }
+
+/*# sourceMappingURL=home.component.css.map */

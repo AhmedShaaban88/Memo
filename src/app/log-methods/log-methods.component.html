@@ -1,0 +1,95 @@
+<a id="lang" (click)="switchLanguage()">{{appLang}}</a>
+
+<div class="container" id="form-container">
+
+
+  <div  *ngIf="!hideWelcome; else show">
+    <img src="../../assets/icons/icon-128x128.png" class="left-animation" alt="noteImg">
+    <h1>Memo</h1>
+    <p>{{'log.firstP' | translate }}</p>
+    <span class="next" (click)="showSignInMethods()">{{'log.next' | translate }} <i class="fas fa-chevron-right"></i></span>
+  </div>
+
+  <ng-template #show>
+  <img src="../../assets/icons8-customer-64.png" class="left-animation" alt="placeholderImg">
+    <div class="row" id="signBtns" *ngIf="!showSignIn && !showSignUp">
+  <button class="btn btn-primary col-md-6 offset-md-3" (click)="signInWithFacebook()"><i class="fab fa-facebook-square"></i> {{'log.login.fb' | translate}}</button>
+    <button class="btn btn-danger col-md-6 offset-md-3" (click)="signInWithGoogle()"><i class="fab fa-google"></i> {{'log.login.google' | translate}}</button>
+    <button class="btn btn-light col-md-6 offset-md-3" (click)="signInRegular()"><i class="fas fa-envelope"></i> {{'log.login.mail' | translate}}</button>
+    <a class="col-md-6 offset-md-3" (click)="signUpRegular()">{{'log.login.signUp' | translate}}</a>
+      <div class="alert alert-danger" role="alert" *ngIf="error">
+        {{'log.login.errorSign' | translate}}
+      </div>
+    </div>
+
+    <div *ngIf="showSignIn">
+      <form [formGroup]="signinForm" (ngSubmit)="checkUser()" id="signIn">
+        <div class="form-group">
+          <label for="email">{{'log.regularSignIn.mail.title' | translate}}</label>
+          <input required formControlName="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="{{'log.regularSignIn.mail.place' | translate}}">
+        </div>
+        <div class="form-group">
+          <label for="password">{{'log.regularSignIn.password.title' | translate}}</label>
+          <input required formControlName="password" type="password" class="form-control" id="password" placeholder="{{'log.regularSignIn.password.place' | translate}}">
+        </div>
+
+        <button type="submit" class="btn btn-primary">{{'log.regularSignIn.submit' | translate}}</button>
+        <div class="alert alert-danger" role="alert" *ngIf="errorSingInForm">
+          {{errorSingInForm}}
+        </div>
+      </form>
+    </div>
+    <div *ngIf="showSignUp">
+      <form [formGroup]="signUpForm" (ngSubmit)="createUser()" id="signUp">
+        <div class="alert alert-danger" role="alert" *ngIf="errorSignUpForm">
+          {{errorSignUpForm}}
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6 col-sm-6">
+            <label for="uname">{{'log.signUp.name.title' | translate}}</label>
+            <input type="text" class="form-control" id="uname" placeholder="{{'log.signUp.name.title' | translate}}" formControlName="uname">
+            <small class="text-danger" *ngIf="!correctUname">
+              {{'log.signUp.name.error' | translate}}
+            </small>
+          </div>
+          <div class="form-group col-md-6 col-sm-6">
+            <label for="email">{{'log.signUp.mail.title' | translate}}</label>
+            <input type="email" class="form-control" id="uemail" placeholder="{{'log.signUp.mail.place' | translate}}" formControlName="uemail">
+            <small class="text-danger" *ngIf="!correctEmail">
+              {{'log.signUp.mail.error' | translate}}
+            </small>
+          </div>
+        </div>
+
+
+
+
+
+          <div class="form-row">
+          <div class="form-group col-md-6 col-sm-6">
+            <label for="upassword">{{'log.signUp.password.title' | translate}}</label>
+            <input type="password" class="form-control" id="upassword" placeholder="{{'log.signUp.password.place' | translate}}" formControlName="upassword">
+            <small class="text-danger" *ngIf="!correctPassword">
+              {{'log.signUp.password.error' | translate}}
+            </small>
+
+          </div>
+          <div class="form-group col-md-6 col-sm-6">
+            <label for="cpassword">{{'log.signUp.confPassword.title' | translate}}</label>
+            <input type="password" class="form-control" id="cpassword" placeholder="{{'log.signUp.confPassword.place' | translate}}" formControlName="conf_password">
+            <small class="text-danger" *ngIf="!identicalPassword">
+              {{'log.signUp.confPassword.error' | translate}}
+            </small>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">{{'log.signUp.sign-up' | translate}}</button>
+
+      </form>
+    </div>
+    <span class="prev" (click)="checkPrev()"><i class="fas fa-chevron-left"></i> {{'log.prev' | translate}}</span>
+  </ng-template>
+
+
+</div>
+

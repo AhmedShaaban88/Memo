@@ -1,0 +1,77 @@
+$main-color: #157efb
+#lang
+  color: $main-color
+  font-size: 22px
+  cursor: pointer
+#form-container
+  border: 1px solid #eee
+  box-shadow: 1px 1px 3px 0px #9E9E9E
+  text-align: center
+  margin: auto
+  max-width: 45%
+  height: 85%
+  position: absolute
+  top: 10%
+  left: 25%
+  h1
+    margin-top: 25%
+  #signBtns
+    margin-top: 70px
+  .next, .prev
+    position: absolute
+    left: 82%
+    top: 92%
+    color: $main-color
+    cursor: pointer
+    @media screen and (max-width: 350px)
+      left: 75%
+
+  .prev
+    left: 7%
+  button
+    &:not([type='submit'])
+      padding: 15px
+      margin-bottom: 8px
+    @media screen and (max-width: 800px) and (min-width: 768px)
+      font-size: 15px
+
+  a
+    margin-top: 30px
+    cursor: pointer
+    color: $main-color
+  .alert-danger
+    width: 100%
+    margin-top: 3%
+
+.left-animation
+  animation: leftAnim 1.2s ease-in-out forwards
+@keyframes leftAnim
+  from
+    margin-left: -100%
+    opacity: 0
+  to
+    margin-left: 0
+    opacity: 1
+@media screen and (min-width: 700px)
+  #signUp
+    margin-top: 10%
+@media screen and (max-width: 600px)
+  #form-container
+    max-width: 75%
+    top: 15%
+    left: 15%
+    img
+      padding: 0
+    h1
+      margin-top: 20%
+    #signBtns
+      margin-top: 40px
+      a
+        margin-top: 15px !important
+    #signIn
+      margin-top: 40px
+@media screen and (max-width: 575px)
+  .form-row
+    flex-wrap: nowrap
+
+
